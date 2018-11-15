@@ -1,0 +1,195 @@
+/*
+Primary: #eb2f64
+Primary light: #FF3366
+Primary dark: #BA265D
+*/
+//global resets
+* { 
+    margin: 0;
+    padding: 0;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+html {
+    box-sizing: border-box;
+    font-size: 65%; //1rem = 10px, 10px/16px(default) = 62.5%
+}
+@font-face {
+    font-family: Gabuek;
+    src: url('../img/Gabuek Script.ttf');
+    
+}
+//custom css var colors
+:root {
+    --color-primary: #716658;
+    --color-primary-light: #C58772;
+    --color-primary-dark: #534948;
+    --grey-light-1: #faf9f9;
+    --grey-light-2: #f4f2f2;
+    --grey-light-3: #f0eeee;
+    --grey-light-4: #ccc;
+    --grey-dark-1: #333;
+    --grey-dark-2: #777;
+    --grey-dark-3: #999;
+}
+body {
+    font-family: Gabuek, 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6; 
+    
+    background-image: url('../img/22.jpg');
+    //background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-size: cover;
+    //background-repeat: no-repeat;
+
+    //min-height: 100vh;
+}
+
+//LAYOUT
+
+.container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--grey-light-2);
+    box-shadow: 0 2rem 4rem rgba(0,0,0,.5);
+    min-height: 50rem;
+}
+
+.header {
+    height: 10rem;
+    background-color: #ffffff;
+    border-bottom:  var(--grey-light-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rem solid var(--grey-dark-4);
+}
+.header-icon {
+    height: 3rem;
+    width: 3rem;
+    transition: all .3s;
+}
+.header-icon:hover {
+    transform: scale(1.5);
+}
+.header-logo {
+    height: 9rem;
+    width: 9rem;
+}
+.social-media-wrap {
+    display: flex;
+    justify-content: space-around;
+    flex: 0 0 20rem;
+}
+.content {
+    display: flex;
+}
+//Side Navigation
+.sidebar {
+    background-color: var(--color-primary);
+    flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.side-nav {
+    list-style: none;
+    font-size: 2.5rem;
+
+}
+.nav-item {
+    text-align: center;
+    margin: .5rem 1rem;
+    position: relative;
+    height: 9rem;
+}
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    
+}
+.home:hover::before {
+    background: url('../img/coffee-cup.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
+    color: var(--grey-light-1);
+    transition: all .5s;
+}
+.bon-appetit:hover::before {
+    background: url('../img/logo-food4.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
+    color: var(--grey-light-1);
+    transition: all .5s;
+}
+.cocktails:hover::before {
+    background: url('../img/glass.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
+    color: var(--grey-light-1);
+    transition: all .5s;
+}
+.contact-us:hover::before {
+    background: url('../img/phone-call.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
+    color: var(--grey-light-1);
+    transition: all .5s;
+}
+.active {
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+}
+.nav-item a {
+    text-decoration: none;
+    color: var(--grey-dark-1);
+    
+}
+.copyright {
+    color: var(--grey-light-2);
+    text-align: center;
+    padding: 5rem;
+}
+//Main Content
+.main-view {
+    //background-image: url('../img/21.jpg');
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-size: contain;
+    flex: 1; //occupy remaining space
+}
+.gallery {
+    display: flex;
+    flex-direction: row;
+    //flex-wrap: wrap;
+    //flex-flow: row wrap;
+    
+    &-photo {
+        width: 100%;
+        display: block;
+        min-height: 100%;
+    }
+}
+.main-info {
+   
+    margin: 10rem 25rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    p {
+        background: url('../img/main-back.jpg') no-repeat;
+        background-size: cover;
+        min-height: 65rem;
+        padding-top: 4rem;
+    }
+}
+.next-page {
+    display: flex;
+    justify-content: flex-end;
+}
+.next-icon {
+    margin: 10rem;
+}
